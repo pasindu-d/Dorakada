@@ -1,0 +1,6 @@
+{
+  "name": "Dorakada",
+  "description": "Sri Lankan manpower and skilled services marketplace with tiered subscriptions (FREE, SILVER, GOLD, PLATINUM), multi-day shift scheduling, direct appointment booking, and Google Sheets integration.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

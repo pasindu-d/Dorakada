@@ -1,0 +1,99 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User profile representation",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "joinedDate": { "type": "string" },
+        "verifiedStatus": { "type": "boolean" },
+        "phone": { "type": "string" },
+        "listingRefs": { "type": "array" }
+      },
+      "required": ["uid", "email", "displayName"]
+    },
+    "ProductListing": {
+      "title": "ProductListing",
+      "description": "Product listing representation",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "price": { "type": "number" },
+        "originalPrice": { "type": "number" },
+        "currency": { "type": "string" },
+        "category": { "type": "string" },
+        "condition": { "type": "string" },
+        "location": { "type": "string" },
+        "description": { "type": "string" },
+        "tags": { "type": "array" },
+        "timestamp": { "type": "number" },
+        "sellerId": { "type": "string" },
+        "sellerName": { "type": "string" },
+        "status": { "type": "string" },
+        "images": { "type": "array" },
+        "phone": { "type": "string" }
+      },
+      "required": ["id", "title", "price", "category", "location", "sellerId", "status"]
+    },
+    "ServiceProvider": {
+      "title": "ServiceProvider",
+      "description": "Service provider profile representation",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "uid": { "type": "string" },
+        "name": { "type": "string" },
+        "mobile": { "type": "string" },
+        "category": { "type": "string" },
+        "bio": { "type": "string" },
+        "language": { "type": "string" },
+        "images": { "type": "array" },
+        "createdAt": { "type": "string" },
+        "status": { "type": "string" },
+        "availability": { "type": "object" },
+        "latitude": { "type": "number" },
+        "longitude": { "type": "number" }
+      },
+      "required": ["id", "uid", "name", "mobile", "category", "bio", "language"]
+    },
+    "Booking": {
+      "title": "Booking",
+      "description": "Appointment booking representation",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "providerId": { "type": "string" },
+        "visitorName": { "type": "string" },
+        "visitorMobile": { "type": "string" },
+        "message": { "type": "string" },
+        "date": { "type": "string" },
+        "slot": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "status": { "type": "string" }
+      },
+      "required": ["id", "providerId", "visitorName", "visitorMobile", "date", "slot"]
+    }
+  },
+  "firestore": {
+    "/users/{uid}": {
+      "schema": "UserProfile",
+      "description": "User profiles collection"
+    },
+    "/listings/{id}": {
+      "schema": "ProductListing",
+      "description": "Product listings collection"
+    },
+    "/service_providers/{id}": {
+      "schema": "ServiceProvider",
+      "description": "Service providers collection"
+    },
+    "/bookings/{id}": {
+      "schema": "Booking",
+      "description": "Bookings collection"
+    }
+  }
+}

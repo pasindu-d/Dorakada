@@ -1,0 +1,35 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Global Safety Net
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Collection: Users
+    match /users/{uid} {
+      allow read, write: if true;
+    }
+
+    // Collection: Listings
+    match /listings/{id} {
+      allow read, write: if true;
+    }
+
+    // Collection: Service Providers
+    match /service_providers/{id} {
+      allow read, write: if true;
+    }
+
+    // Collection: Bookings
+    match /bookings/{id} {
+      allow read, write: if true;
+    }
+
+    // Collection: Test Connection
+    match /test/{id} {
+      allow read, write: if true;
+    }
+  }
+}
